@@ -1,0 +1,87 @@
+2016-08-08 15:03:47,244 [INFO] from play.core.server.NettyServer in pool-17-thread-5 - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2016-08-08 15:04:14,261 [INFO] from application in ForkJoinPool-2-worker-1 - ApplicationTimer demo: Starting application at 2016-08-08T13:04:14.261Z.
+2016-08-08 15:04:14,467 [INFO] from play.api.Play in ForkJoinPool-2-worker-1 - Application started (Dev)
+2016-08-08 15:04:14,749 [INFO] from application in application-akka.actor.default-dispatcher-2 - ReactiveMongoApi starting...
+2016-08-08 15:04:14,787 [INFO] from application in application-akka.actor.default-dispatcher-2 - ReactiveMongoApi successfully configured with DB 'projectX'! Servers:
+		[localhost:27017]
+2016-08-08 15:04:14,863 [ERROR] from application in application-akka.actor.default-dispatcher-5 - 
+
+! @712iifae0 - Internal server error, for (PUT) [/api/exercise] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[ConnectionNotInitialized: MongoError['Connection is missing metadata (like protocol version, etc.) The connection pool is probably being initialized.']]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:280)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:206)
+	at play.api.GlobalSettings$class.onError(GlobalSettings.scala:160)
+	at play.api.DefaultGlobal$.onError(GlobalSettings.scala:188)
+	at play.api.http.GlobalSettingsHttpErrorHandler.onServerError(HttpErrorHandler.scala:98)
+	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:100)
+	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:99)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248)
+	at scala.concurrent.Promise$class.complete(Promise.scala:55)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153)
+	at scala.concurrent.Future$$anonfun$recoverWith$1$$anonfun$apply$6.apply(Future.scala:344)
+	at scala.concurrent.Future$$anonfun$recoverWith$1$$anonfun$apply$6.apply(Future.scala:344)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
+	at scala.concurrent.BatchingExecutor$Batch$$anonfun$run$1.processBatch$1(BatchingExecutor.scala:63)
+	at scala.concurrent.BatchingExecutor$Batch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:78)
+	at scala.concurrent.BatchingExecutor$Batch$$anonfun$run$1.apply(BatchingExecutor.scala:55)
+	at scala.concurrent.BatchingExecutor$Batch$$anonfun$run$1.apply(BatchingExecutor.scala:55)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+	at scala.concurrent.BatchingExecutor$Batch.run(BatchingExecutor.scala:54)
+	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:599)
+	at scala.concurrent.BatchingExecutor$class.execute(BatchingExecutor.scala:106)
+	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:597)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248)
+	at scala.concurrent.Promise$class.complete(Promise.scala:55)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153)
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235)
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:235)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:405)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: reactivemongo.core.errors.ConnectionNotInitialized: MongoError['Connection is missing metadata (like protocol version, etc.) The connection pool is probably being initialized.']
+	at reactivemongo.core.errors.ConnectionNotInitialized$.MissingMetadata(errors.scala:71)
+	at reactivemongo.api.collections.GenericCollection$class.update(genericcollection.scala:420)
+	at reactivemongo.play.json.collection.JSONCollection.update(collection.scala:377)
+	at repos.ExerciseRepoImpl.save(ExerciseRepo.scala:52)
+	at controllers.Exercises$$anonfun$create$1.apply(Exercises.scala:48)
+	at controllers.Exercises$$anonfun$create$1.apply(Exercises.scala:44)
+	at play.api.mvc.Action$.invokeBlock(Action.scala:498)
+	at play.api.mvc.Action$.invokeBlock(Action.scala:495)
+	at play.api.mvc.ActionBuilder$$anon$2.apply(Action.scala:458)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:111)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:110)
+	at scala.Option.map(Option.scala:146)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:110)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:103)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249)
+	... 13 common frames omitted
+2016-08-08 15:30:34,205 [INFO] from application in ForkJoinPool-4-worker-7 - ReactiveMongoApi stopping...
+2016-08-08 15:30:34,228 [INFO] from application in ForkJoinPool-4-worker-5 - ReactiveMongoApi connections stopped. [Success(Closed)]
+2016-08-08 15:30:34,230 [WARN] from reactivemongo.core.actors.MongoDBSystem in reactivemongo-akka.actor.default-dispatcher-3 - MongoDBSystem Actor[akka://reactivemongo/user/Connection-2#1476478024] stopped.
+2016-08-08 15:30:34,260 [INFO] from application in ForkJoinPool-4-worker-7 - ApplicationTimer demo: Stopping application at 2016-08-08T13:30:34.260Z after 1580s.
+2016-08-08 15:30:34,354 [INFO] from application in application-akka.actor.default-dispatcher-4 - ApplicationTimer demo: Starting application at 2016-08-08T13:30:34.353Z.
+2016-08-08 15:30:34,462 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
+2016-08-08 15:30:34,477 [INFO] from application in application-akka.actor.default-dispatcher-4 - ReactiveMongoApi starting...
+2016-08-08 15:30:34,491 [INFO] from application in application-akka.actor.default-dispatcher-4 - ReactiveMongoApi successfully configured with DB 'projectX'! Servers:
+		[localhost:27017]

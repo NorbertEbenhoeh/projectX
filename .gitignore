@@ -17,6 +17,17 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Idea
+.idea*
+
+# target
+project/target/*
+project/project/target/*
+target/*
+
+# more folders
+.sbtserver/
+
 # =========================
 # Operating System Files
 # =========================
