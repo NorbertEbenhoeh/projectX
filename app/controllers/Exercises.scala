@@ -6,12 +6,10 @@ import models.Sportstype.Sportstype
 
 import org.joda.time.DateTime
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import play.api.libs.json
 import play.api.libs.json._
 import play.api.mvc.{Action, BodyParsers, Controller}
 import play.modules.reactivemongo.{MongoController, ReactiveMongoApi, ReactiveMongoComponents}
-import play.mvc._
-import reactivemongo.bson.{BSONDateTime, BSONDocument, BSONObjectID}
+import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.core.actors.Exceptions.PrimaryUnavailableException
 import repos.ExerciseRepoImpl
 
@@ -24,7 +22,7 @@ import scala.concurrent.duration._
 class Exercises @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends Controller
   with MongoController with ReactiveMongoComponents{
 
-  import controllers.ExerciseFields._
+  import models.ExerciseFields._
 
   def exerciseRepo = new ExerciseRepoImpl(reactiveMongoApi)
 
@@ -79,18 +77,6 @@ class Exercises @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends Contro
     exerciseRepo.remove(BSONDocument(Id -> BSONObjectID(id))).map(result => Accepted("Deleted: "+ id ))
   }
 
-}
-
-object ExerciseFields {
-  val Id = "_id"
-  val Title = "title"
-  val Sportstype = "sportstype"
-  val Description = "description"
-  // val Content = "content" // will be another class
-  val Owner = "owner" // Besitzer ist auch Ersteller. Ist eindeutig.
-  val Version = "version"
-  val CreatedAt = "createdAt"
-  val UpdatedAt = "updatedAt"
 }
 
 

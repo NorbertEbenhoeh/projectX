@@ -10,12 +10,18 @@ GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
 
-#Widgets
-GET     /api/exercises              controllers.Exercises.index
-GET     /api/exercise/:id           controllers.Exercises.read(id: String)
+#Users
+PUT     /api/user                   controllers.Users.create
+GET     /api/user/:id               controllers.Users.read(id: String)
+PATCH   /api/user/:id               controllers.Users.update(id: String)
+DELETE  /api/user/:id               controllers.Users.delete(id: String)
+
+#Exercises
 PUT     /api/exercise               controllers.Exercises.create
-DELETE  /api/exercise/:id           controllers.Exercises.delete(id: String)
+GET     /api/exercise/:id           controllers.Exercises.read(id: String)
 PATCH   /api/exercise/:id           controllers.Exercises.update(id: String)
+DELETE  /api/exercise/:id           controllers.Exercises.delete(id: String)
+GET     /api/exercises              controllers.Exercises.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

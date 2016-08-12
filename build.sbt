@@ -17,6 +17,7 @@ libraryDependencies ++= Seq(
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
+resolvers += "Typesafe Ivy releases" at "https://repo.typesafe.com/typesafe/ivy-releases"
 
 
-fork in run := false
+// fork in run := false
