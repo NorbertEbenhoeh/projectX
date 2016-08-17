@@ -27,6 +27,8 @@ target/*
 
 # more folders
 .sbtserver/
+logs/
+logs*
 
 # =========================
 # Operating System Files
@@ -38,6 +40,7 @@ target/*
 .DS_Store
 .AppleDouble
 .LSOverride
+
 
 # Thumbnails
 ._*

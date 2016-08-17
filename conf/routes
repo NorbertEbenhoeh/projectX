@@ -11,17 +11,24 @@ GET     /count                      controllers.CountController.count
 GET     /message                    controllers.AsyncController.message
 
 #Users
-PUT     /api/user                   controllers.Users.create
-GET     /api/user/:id               controllers.Users.read(id: String)
-PATCH   /api/user/:id               controllers.Users.update(id: String)
-DELETE  /api/user/:id               controllers.Users.delete(id: String)
+PUT     /api/users                   controllers.Users.create
+GET     /api/users/:id               controllers.Users.read(id: String)
+PATCH   /api/users/:id               controllers.Users.update(id: String)
+DELETE  /api/users/:id               controllers.Users.delete(id: String)
 
 #Exercises
-PUT     /api/exercise               controllers.Exercises.create
-GET     /api/exercise/:id           controllers.Exercises.read(id: String)
-PATCH   /api/exercise/:id           controllers.Exercises.update(id: String)
-DELETE  /api/exercise/:id           controllers.Exercises.delete(id: String)
+PUT     /api/exercises              controllers.Exercises.create
+GET     /api/exercises/:id          controllers.Exercises.read(id: String)
+PATCH   /api/exercises/:id          controllers.Exercises.update(id: String)
+DELETE  /api/exercises/:id          controllers.Exercises.delete(id: String)
 GET     /api/exercises              controllers.Exercises.index
+
+#Exercises
+PUT     /api/trainingSchedules          controllers.TrainingSchedules.create
+GET     /api/trainingSchedules/:id      controllers.TrainingSchedules.read(id: String)
+PATCH   /api/trainingSchedules/:id      controllers.TrainingSchedules.update(id: String)
+DELETE  /api/trainingSchedules/:id      controllers.TrainingSchedules.delete(id: String)
+GET     /api/trainingSchedules          controllers.TrainingSchedules.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

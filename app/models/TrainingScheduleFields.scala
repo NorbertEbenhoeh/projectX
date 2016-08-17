@@ -1,8 +1,5 @@
 package models
 
-/**
-  * Created by norbert on 12.08.2016.
-  */
 object TrainingScheduleFields {
   val Id = "_id"
   val Title = "title"
@@ -12,5 +9,4 @@ object TrainingScheduleFields {
   val Version = "version"
   val CreatedAt = "createdAt"
   val UpdatedAt = "updatedAt"
-
 }
