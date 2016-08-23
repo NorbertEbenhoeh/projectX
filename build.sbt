@@ -13,7 +13,11 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   specs2 % Test,
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.11"
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.11",
+  "jp.t2v" %% "play2-auth"        % "0.14.2",
+  "jp.t2v" %% "play2-auth-social" % "0.14.2",
+  "jp.t2v" %% "play2-auth-test"   % "0.14.2" % "test",
+  play.sbt.Play.autoImport.cache
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
